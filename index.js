@@ -31,7 +31,7 @@ const { version } = require('discord.js');
 
 // When the client is ready, run this code (only once)
 bot.once('ready', () => {
-    console.log('Hello World is online!' + version);
+    console.log('Hunter Bot is online!' + version);
 
     // Set the client user's presence
     bot.user.setPresence({ 
