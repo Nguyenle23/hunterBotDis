@@ -2,7 +2,7 @@
 // Require the necessary discord.js classes
 const Discord = require('discord.js');
 const { Client, Intents, Attachment, Message, MessageEmbed  } = require('discord.js');
-const config = require('./config.json');
+//const config = require('./config.json');
 
 // Create a new client instance
 const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] }); // const bot = new Client();
@@ -79,4 +79,4 @@ bot.on('message', message => {
 });
 
 // Login to Discord with your client's token
-bot.login(config.token);
+bot.login(process.env.DISCORD_BOT_TOKEN);
