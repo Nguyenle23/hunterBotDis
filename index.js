@@ -21,4 +21,4 @@ module.exports = bot;
 ['command', 'event', 'slashCmd'].forEach(handler => require(`./handlers/${handler}`)(bot));
 
 // Login to Discord with your client's token
-bot.login(process.env.DISCORD_BOT_TOKEN || 'ODk0MjY1MzU4MzA1ODY1Nzk5.GVnyOw.XuMDh06rllNz8XbWzxkgmMKo7pF_KIhQTK9TZk');
+bot.login(process.env.DISCORD_BOT_TOKEN);
