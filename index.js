@@ -1,13 +1,11 @@
-
-// Require the necessary discord.js classes
 const Discord = require('discord.js');
-const { Client, Intents, Attachment, Message, MessageEmbed  } = require('discord.js');
+const { Client, Intents, Attachment, Message, MessageEmbed } = require('discord.js');
 //const config = require('./config.json');
 
 // Create a new client instance
 const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] }); // const bot = new Client();
 
-const prefix = '-';  //the initial command
+const prefix = '-'; //the initial command
 
 const fs = require('fs'); //connect to order js file
 
@@ -34,40 +32,41 @@ bot.once('ready', () => {
     console.log('Hunter Bot is online!' + version);
 
     // Set the client user's presence
-    bot.user.setPresence({ 
-        activities: [{ 
+    bot.user.setPresence({
+        activities: [{
             name: 'Hello World',
             type: 'STREAMING'
-        }], 
-        status: 'online' });
+        }],
+        status: 'online'
+    });
 });
 
 //command for bot to respond my message
 bot.on('message', message => {
 
-    if(!message.content.startsWith(prefix) || message.author.bot ) return; //check the prefix start with - and /
+    if (!message.content.startsWith(prefix) || message.author.bot) return; //check the prefix start with - and /
 
     const args = message.content.slice(prefix.length).split(/ +/); //check the space, ex: -icheck wiki
 
     const command = args.shift().toLowerCase(); //change all Uppercase to Lowercase
 
-    if(command === 'hello'){
+    if (command === 'hello') {
         bot.commands.get('hello').execute(message, args);
         message.react('🤘');
-    } else if(command === 'nguyen'){
+    } else if (command === 'nguyen') {
         bot.commands.get('nguyen').execute(message, args, Discord);
         message.react('🥚');
-    } else if(command === 'cuong'){
+    } else if (command === 'cuong') {
         bot.commands.get('cuong').execute(message, args, Discord);
-    } else if(command === 'tu'){
+    } else if (command === 'tu') {
         bot.commands.get('tu').execute(message, args, Discord);
-    } else if(command === 'quy'){
+    } else if (command === 'quy') {
         bot.commands.get('quy').execute(message, args, Discord);
-    } else if(command === 'bach'){
+    } else if (command === 'bach') {
         bot.commands.get('bach').execute(message, args, Discord);
     } else if (command === 'clear') { //clear messsages only 14days 
         bot.commands.get('clear').execute(message, args);
-    } 
+    }
     /*else if(command === 'mute') {
         bot.commands.get('mute').execute(message, args);
     } 
@@ -79,4 +78,4 @@ bot.on('message', message => {
 });
 
 // Login to Discord with your client's token
-bot.login(process.env.DISCORD_BOT_TOKEN);
+bot.login(process.env.DISCORD_BOT_TOKEN || 'ODk0MjY1MzU4MzA1ODY1Nzk5.YVnfhA.FFjDRGTUDwWH7wF5GPhVQ8mntJM');
