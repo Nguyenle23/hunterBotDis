@@ -78,4 +78,4 @@ bot.on('message', message => {
 });
 
 // Login to Discord with your client's token
-bot.login(process.env.DISCORD_BOT_TOKEN || 'ODk0MjY1MzU4MzA1ODY1Nzk5.YVnfhA.FFjDRGTUDwWH7wF5GPhVQ8mntJM');
+bot.login(process.env.DISCORD_BOT_TOKEN);
